@@ -10,9 +10,11 @@
     "@types/node": "^16.18.70",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "@types/styled-components": "^5.1.34",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.8",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +47,10 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
     "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.1.1"
   }
 }
