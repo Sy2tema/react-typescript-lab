@@ -6,18 +6,18 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Label = styled.div`
+const Label = styled.h1`
   margin-top: 0;
 `;
 
 interface Props {
-    readonly label: string;
+  readonly label: string;
 }
 
 export const Title = ({ label }: Props) => {
-    return (
-        <Container>
-            <Label>{label}</Label>
-        </Container>
-    )
+  return (
+    <Container>
+      <Label>{label}</Label>
+    </Container>
+  )
 };

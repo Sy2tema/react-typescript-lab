@@ -4,12 +4,12 @@ import styled from "styled-components";
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-cont3ent: center;
+    justify-content: center;
     margin-bottom: 16px;
 `;
 
 const Label = styled.div`
-  flex: 1
+  flex: 1;
   font-size: 1.2rem;
   margin-right: 16px;
 `;
