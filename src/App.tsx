@@ -1,6 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
 import { Title } from 'components/Title';
+import { Button } from 'components/Button';
 
 const Container = styled.div`
   height: 100vh;
@@ -15,6 +16,7 @@ function App() {
   return (
     <Container>
       <Title label="할 일 목록" />
+      <Button label="삭제" />
     </Container>
   );
 }
