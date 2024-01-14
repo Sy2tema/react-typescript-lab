@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Title } from 'components/Title';
-import { TodoItem } from 'components/TodoItem';
+import { useState } from 'react';
+import { DataView } from 'components/DataView';
 
 const Container = styled.div`
   height: 100vh;
@@ -12,10 +12,15 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [toDoList, setToDoList] = useState(["리액트 공부하기", "타입스크립트 공부하기", "운동하기"]);
+
+  const onDelete = (todo: string) => {
+    setToDoList(toDoList.filter((item) => item !== todo));
+  }
+
   return (
     <Container>
-      <Title label="할 일 목록" />
-      <TodoItem label="리액트 공부하기" />
+      <DataView toDoList={toDoList} onDelete={onDelete} />
     </Container>
   );
 }
