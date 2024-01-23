@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { DataView } from 'components/DataView';
 import { TodoInput } from 'components/TodoInput';
+import { Button } from 'components/Button';
 
 const Container = styled.div`
   height: 100vh;
@@ -12,8 +13,16 @@ const Container = styled.div`
   background-color: #eeeeee;
 `;
 
+const ShowInputComponent = styled.div`
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  z-index: 1;
+`;
+
 function App() {
   const [toDoList, setToDoList] = useState(["리액트 공부하기", "타입스크립트 공부하기", "운동하기"]);
+  const [showTodoInput, setShowTodoInput] = useState(false);
   const [todo, setTodo] = useState("");
 
   const onDelete = (todo: string) => {
@@ -23,6 +32,7 @@ function App() {
   const onAdd = () => {
     if (todo === '') return;
 
+    setShowTodoInput(false);
     setToDoList([...toDoList, todo]);
     setTodo("");
   }
@@ -30,7 +40,14 @@ function App() {
   return (
     <Container>
       <DataView toDoList={toDoList} onDelete={onDelete} />
-      <TodoInput onAdd={onAdd} />
+      {showTodoInput && <TodoInput onAdd={onAdd} />}
+      <ShowInputComponent>
+        <Button 
+          label={showTodoInput ? '닫기' : '할 일 추가'}
+          color={showTodoInput ? undefined : '#304FFE'}
+          onClick={() => setShowTodoInput(!showTodoInput)}
+        />
+      </ShowInputComponent>
     </Container>
   );
 }
