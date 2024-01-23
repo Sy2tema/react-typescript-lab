@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { DataView } from 'components/DataView';
-import { TextInput } from 'components/TextInput';
-import { Button } from 'components/Button';
+import { TodoInput } from 'components/TodoInput';
 
 const Container = styled.div`
   height: 100vh;
@@ -21,7 +20,7 @@ function App() {
     setToDoList(toDoList.filter((item) => item !== todo));
   }
 
-  const onAddTodo = () => {
+  const onAdd = () => {
     if (todo === '') return;
 
     setToDoList([...toDoList, todo]);
@@ -31,8 +30,7 @@ function App() {
   return (
     <Container>
       <DataView toDoList={toDoList} onDelete={onDelete} />
-      <TextInput value={todo} onChange={setTodo} />
-      <Button label='추가' color='#304FFE' onClick={onAddTodo} />
+      <TodoInput onAdd={onAdd} />
     </Container>
   );
 }
