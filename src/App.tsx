@@ -23,18 +23,16 @@ const ShowInputComponent = styled.div`
 function App() {
   const [toDoList, setToDoList] = useState(["리액트 공부하기", "타입스크립트 공부하기", "운동하기"]);
   const [showTodoInput, setShowTodoInput] = useState(false);
-  const [todo, setTodo] = useState("");
 
   const onDelete = (todo: string) => {
     setToDoList(toDoList.filter((item) => item !== todo));
   }
 
-  const onAdd = () => {
+  const onAdd = (todo: string) => {
     if (todo === '') return;
 
     setShowTodoInput(false);
     setToDoList([...toDoList, todo]);
-    setTodo("");
   }
 
   return (
@@ -42,7 +40,7 @@ function App() {
       <DataView toDoList={toDoList} onDelete={onDelete} />
       {showTodoInput && <TodoInput onAdd={onAdd} />}
       <ShowInputComponent>
-        <Button 
+        <Button
           label={showTodoInput ? '닫기' : '할 일 추가'}
           color={showTodoInput ? undefined : '#304FFE'}
           onClick={() => setShowTodoInput(!showTodoInput)}
