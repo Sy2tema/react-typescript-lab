@@ -1,7 +1,8 @@
 import { Button } from "components/Button";
 import { TextInput } from "components/TextInput";
 import { Title } from "components/Title";
-import { useState } from "react";
+import { TodoListContext } from "contexts/TodoList";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -42,10 +43,11 @@ const InputContainer = styled.div`
 `;
 
 interface Props {
-    readonly onAdd: (todo: string) => void;
+    readonly onClose: () => void;
 }
 
-export const TodoInput = ({onAdd}: Props) => {
+export const TodoInput = ({ onClose }: Props) => {
+    const { onAdd } = useContext(TodoListContext);
     const [todo, setTodo] = useState("");
 
     const onAddTodo = () => {
@@ -53,6 +55,7 @@ export const TodoInput = ({onAdd}: Props) => {
 
         onAdd(todo);
         setTodo("");
+        onClose();
     }
 
     return (

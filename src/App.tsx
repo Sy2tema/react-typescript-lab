@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { DataView } from 'components/DataView';
 import { InputContainer } from 'components/InputContainer';
+import { TodoListContextProvider } from 'contexts/TodoList';
 
 const Container = styled.div`
   height: 100vh;
@@ -13,20 +13,12 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [toDoList, setToDoList] = useState(["리액트 공부하기", "타입스크립트 공부하기", "운동하기"]);
-
-  const onDelete = (todo: string) => {
-    setToDoList(toDoList.filter((item) => item !== todo));
-  }
-
-  const onAdd = (todo: string) => {
-    setToDoList([...toDoList, todo]);
-  }
-
   return (
     <Container>
-      <DataView toDoList={toDoList} onDelete={onDelete} />
-      <InputContainer onAdd={onAdd} />
+      <TodoListContextProvider>
+        <DataView />
+        <InputContainer />
+      </TodoListContextProvider>
     </Container>
   );
 }
