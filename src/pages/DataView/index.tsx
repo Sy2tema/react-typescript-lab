@@ -20,7 +20,7 @@ export const DataView = () => {
         <Container>
             <Title label="할 일 목록" />
             <ToDoList />
-            <ShowInputButton show={false} onClick={() => navigate('/addTodo')} />
+            <ShowInputButton show={false} onClick={() => navigate('/add-todo')} />
         </Container>
     );
 };

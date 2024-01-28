@@ -1,8 +1,10 @@
 import { Button } from "components/Button";
+import { ShowInputButton } from "components/ShowInputButton";
 import { TextInput } from "components/TextInput";
 import { Title } from "components/Title";
 import { TodoListContext } from "contexts/TodoList";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -22,7 +24,6 @@ const Background = styled.div`
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgb(0 0 0 / 75%);
 `;
 
 const Contents = styled.div`
@@ -42,11 +43,8 @@ const InputContainer = styled.div`
     justify-content: center;
 `;
 
-interface Props {
-    readonly onClose: () => void;
-}
-
-export const TodoInput = ({ onClose }: Props) => {
+export const TodoInput = () => {
+    const navigate = useNavigate();
     const { onAdd } = useContext(TodoListContext);
     const [todo, setTodo] = useState("");
 
@@ -55,7 +53,7 @@ export const TodoInput = ({ onClose }: Props) => {
 
         onAdd(todo);
         setTodo("");
-        onClose();
+        navigate("/");
     }
 
     return (
@@ -68,6 +66,7 @@ export const TodoInput = ({ onClose }: Props) => {
                     <Button label="추가" color="#304FFE" onClick={onAddTodo} />
                 </InputContainer>
             </Contents>
+            <ShowInputButton show={true} onClick={() => navigate('/')} />
         </Container>
     );
 };
