@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { DataView } from 'components/DataView';
-import { InputContainer } from 'components/InputContainer';
+import { DataView } from 'pages/DataView';
 import { TodoListContextProvider } from 'contexts/TodoList';
+import { Routes, Route } from 'react-router-dom';
 
-const Container = styled.div`
+const Container = styled.h1`
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,12 +12,26 @@ const Container = styled.div`
   background-color: #eeeeee;
 `;
 
+const NotFound = styled.div`
+  text-align: center;
+`;
+
 function App() {
   return (
     <Container>
       <TodoListContextProvider>
-        <DataView />
-        <InputContainer />
+        <Routes>
+          <Route path='/' element={<DataView />} />
+          <Route
+            path='*'
+            element={
+              <NotFound>
+                404<br />
+                NOT FOUND
+              </NotFound>
+            }
+          />
+        </Routes>
       </TodoListContextProvider>
     </Container>
   );
