@@ -1,6 +1,6 @@
-import { ShowInputButton } from "components/ShowInputButton";
-import { Title } from "components/Title";
-import { ToDoList } from "components/ToDoList";
+import ShowInputButton from "components/ShowInputButton";
+import Title from "components/Title";
+import ToDoList from "components/ToDoList";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const Container = styled.div`
     border-radius: 8px;
 `;
 
-export const DataView = () => {
+const DataView = () => {
     const navigate = useNavigate();
     return (
         <Container>
@@ -24,3 +24,5 @@ export const DataView = () => {
         </Container>
     );
 };
+
+export default DataView;

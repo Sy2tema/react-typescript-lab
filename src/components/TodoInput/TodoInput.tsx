@@ -1,7 +1,7 @@
-import { Button } from "components/Button";
-import { ShowInputButton } from "components/ShowInputButton";
-import { TextInput } from "components/TextInput";
-import { Title } from "components/Title";
+import Button from "components/Button";
+import ShowInputButton from "components/ShowInputButton";
+import TextInput from "components/TextInput";
+import Title from "components/Title";
 import { TodoListContext } from "contexts/TodoList";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -43,7 +43,7 @@ const InputContainer = styled.div`
     justify-content: center;
 `;
 
-export const TodoInput = () => {
+const TodoInput = () => {
     const navigate = useNavigate();
     const { onAdd } = useContext(TodoListContext);
     const [todo, setTodo] = useState("");
@@ -70,3 +70,5 @@ export const TodoInput = () => {
         </Container>
     );
 };
+
+export default TodoInput;

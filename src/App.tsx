@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { DataView } from 'pages/DataView';
+import DataView from 'components/DataView';
 import { TodoListContextProvider } from 'contexts/TodoList';
 import { Routes, Route } from 'react-router-dom';
-import { TodoInput } from 'pages/TodoInput';
+import TodoInput from 'components/TodoInput';
 
 const Container = styled.h3`
   height: 100vh;
