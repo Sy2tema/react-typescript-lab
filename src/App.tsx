@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import DataView from 'components/DataView';
+import { TodoListContextProvider } from 'contexts/TodoList';
+import { Routes, Route } from 'react-router-dom';
+import TodoInput from 'components/TodoInput';
+import Header from 'components/Header';
+
+const Container = styled.h3`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+`;
+
+const NotFound = styled.div`
+  text-align: center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <TodoListContextProvider>
+        <Header />
+        <Routes>
+          <Route path='/' element={<DataView />} />
+          <Route path='/add-todo' element={<TodoInput />} />
+          <Route
+            path='*'
+            element={
+              <NotFound>
+                404<br />
+                NOT FOUND
+              </NotFound>
+            }
+          />
+        </Routes>
+      </TodoListContextProvider>
+    </Container>
   );
 }
 
