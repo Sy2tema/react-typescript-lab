@@ -23,6 +23,7 @@ const Header = () => {
     return (
         <Container>
             <StyledLink to={"/"}>할 일 목록 앱</StyledLink>
+            <StyledLink to={"/blog"}>블로그 앱</StyledLink>
         </Container>
     )
 }

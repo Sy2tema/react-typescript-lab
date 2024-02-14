@@ -4,6 +4,7 @@ import { TodoListContextProvider } from 'contexts/TodoList';
 import { Routes, Route } from 'react-router-dom';
 import TodoInput from 'components/TodoInput';
 import Header from 'components/Header';
+import BlogPost from 'components/BlogPost';
 
 const Container = styled.h3`
   height: 100vh;
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<DataView />} />
           <Route path='/add-todo' element={<TodoInput />} />
+          <Route path='/blog' element={<BlogPost />} />
           <Route
             path='*'
             element={
